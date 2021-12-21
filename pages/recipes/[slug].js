@@ -30,10 +30,10 @@ export const getStaticProps = async ({ params: { slug } }) => {
   });
   //esto lo usa para checkear cuando una pag no existe
   //(creo que funciona en prod)
-  if (!response.items.lenth) {
+  if (!response.items.length) {
     return {
       redirect: {
-        destination: "/404",
+        destination: "/",
         permanent: false,
       },
     };

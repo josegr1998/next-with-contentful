@@ -2,13 +2,15 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+//va automaticamente cuando no encuentra algo
 const NotFound = () => {
   const router = useRouter();
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       router.push("/");
     }, 5000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
