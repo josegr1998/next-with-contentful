@@ -33,7 +33,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
   if (!response.items.length) {
     return {
       redirect: {
-        destination: "/",
+        destination: "/404",
         permanent: false,
       },
     };
