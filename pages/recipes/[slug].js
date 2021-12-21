@@ -28,6 +28,16 @@ export const getStaticProps = async ({ params: { slug } }) => {
     content_type: "recipe",
     "fields.slug": slug,
   });
+  //esto lo usa para checkear cuando una pag no existe
+  //(creo que funciona en prod)
+  if (!response.items.lenth) {
+    return {
+      redirect: {
+        destination: "/404",
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: { recipe: response.items[0] },
